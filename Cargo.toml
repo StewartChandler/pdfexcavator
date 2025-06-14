@@ -1,0 +1,14 @@
+[workspace]
+resolver = "3"
+members = ["pdf_internals"]
+
+# deny everything by default
+[workspace.lints]
+clippy = { all = "deny" }
+rust = { warnings = "deny" }
+rustdoc = { all = "deny" }
+
+# enable the build dependancies to be optimized even on dev
+[profile.dev.build-override]
+opt-level = 3
+debug = false
